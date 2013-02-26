@@ -1,14 +1,21 @@
 SUMMARY
 =======
-This project allows to copy data from MySQL tables to Cassandra and to keep the consistency. Useful tool where you need to move this data ASAP as a temp solution. Obviuosly, moving SQL schemas to noSQL has its drawbacks due to the schema design nature, so I don't recommend this solution unless it is an emergency. Runs as a daemon.
-
+This project allows to copy data from MySQL tables to Cassandra and to keep the consistency. 
+Useful tool where you need to move this data ASAP as a temp solution. 
+Obviuosly, moving SQL schemas to noSQL has its drawbacks due to the schema design nature, so I don't recommend this solution unless it is an emergency and a temp solution. 
+Runs as a daemon.
 
 AUTHOR
 ======
 luis.martin.gil@indigital.net
 INdigital Telecom. 2012
 
+TAGS
+====
+mysql, cassandra, java, hector
 
+Instructions
+============
 Some 'dont forget' commands related to this project:
 ; Clean the project
 mvn clean

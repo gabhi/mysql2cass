@@ -1,0 +1,15 @@
+.idea
+.idea/*
+.idea/**/*
+.idea/workspace.xml
+
+logs/**/* 
+out/**/* 
+
+*.iml
+*~
+logs/
+*.log.*
+*.log
+
+target/**/*

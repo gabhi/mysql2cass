@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+
+<!-- format: number of digits for the keys (adding left-extra-zeros to the keys). -->
+<!-- pauseReconnections: Pause between reconnection attempts. [ms]. -->
+<!-- column type must be {string, int, datetime}. -->
+<!-- numericKeyStr must be an autoincremental index. -->
+<!-- secondaryIndex decreases Cassandra performance -->
+<!-- keysType could be string or int, is the type for the keys for Cassandra -->
+
+<mysql2cass>
+    <mapping refresh="11200" elementsAtOnce="40">
+        <mysql host="192.168.1.201" port="3306" user="_TOFILL_" pass="_TOFILL_"
+               db="openser" table="missed_calls" numericKeyStr="id"
+               truncateDataBase="false"
+               pauseReconnections="2000"></mysql>
+        <maps>
+            <column name="id"		    type="int"      secondaryIndex="true"></column>
+            <column name="method" 		type="string"   secondaryIndex="true"></column>
+            <column name="from_tag"		type="string"   secondaryIndex="true"></column>
+            <column name="to_tag"		type="string"   secondaryIndex="true"></column>
+            <column name="callid"		type="string"   secondaryIndex="true"></column>
+            <column name="sip_code"		type="string"   secondaryIndex="true"></column>
+            <column name="sip_reason"	type="string"   secondaryIndex="true"></column>
+            <column name="time"		    type="datetime" secondaryIndex="true"></column>
+            <column name="src_ip"		type="string"   secondaryIndex="true"></column>
+            <column name="dst_user"		type="string"   secondaryIndex="true"></column>
+            <column name="dst_ouser"	type="string"   secondaryIndex="true"></column>
+            <column name="dst_domain"	type="string"   secondaryIndex="true"></column>
+            <column name="src_user"		type="string"   secondaryIndex="true"></column>
+            <column name="src_domain"	type="string"   secondaryIndex="true"></column>
+            <column name="cdr_id"		type="int"      secondaryIndex="true"></column>
+        </maps>
+        <cassandra host="192.168.1.200" port="9160" pauseReconnections="12000" keysType="string"></cassandra>
+    </mapping>
+    <mapping refresh="14400"  elementsAtOnce="800">
+        <mysql host="192.168.1.201" port="3306" user="_TOFILL_" pass="_TOFILL_"
+               db="openser" table="cdrs" numericKeyStr="cdr_id"
+               truncateDataBase="false"
+               pauseReconnections="2051">
+        </mysql>
+        <maps>
+            <column name="cdr_id"		    type="int"      secondaryIndex="true"></column>
+            <column name="src_username" 	type="string"   secondaryIndex="true"></column>
+            <column name="src_domain"	    type="string"   secondaryIndex="true"></column>
+            <column name="dst_username"	    type="string"   secondaryIndex="true"></column>
+            <column name="dst_domain"	    type="string"   secondaryIndex="true"></column>
+            <column name="call_start_time"	type="datetime" secondaryIndex="true"></column>
+            <column name="duration"		    type="int"      secondaryIndex="true"></column>
+            <column name="sip_call_id"	    type="string"   secondaryIndex="true"></column>
+            <column name="sip_from_tag"	    type="string"   secondaryIndex="true"></column>
+            <column name="sip_to_tag"	    type="string"   secondaryIndex="true"></column>
+            <column name="src_ip"		    type="string"   secondaryIndex="true"></column>
+            <column name="cost"		        type="int"      secondaryIndex="true"></column>
+            <column name="rated"		    type="int"      secondaryIndex="true"></column>
+            <column name="created"		    type="datetime" secondaryIndex="true"></column>
+        </maps>
+        <cassandra host="192.168.1.200" port="9160" pauseReconnections="12051" keysType="string"></cassandra>
+    </mapping>
+</mysql2cass>

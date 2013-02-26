@@ -1,8 +1,9 @@
 SUMMARY
 =======
 This project allows to copy data from MySQL tables to Cassandra and to keep the consistency. 
-Useful tool where you need to move this data ASAP as a temp solution. 
-Obviuosly, moving SQL schemas to noSQL has its drawbacks due to the schema design nature, so I don't recommend this solution unless it is an emergency and a temp solution. 
+Obviuosly, moving SQL schemas to noSQL has its drawbacks due to the schema design nature, so I don't recommend this solution unless it is an emergency. 
+Useful tool where you need to move this data from databases quickly as a temp solution.
+Code needs some cleaning and doc.
 Runs as a daemon.
 
 AUTHOR
